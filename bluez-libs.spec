@@ -69,8 +69,6 @@ aplikacji Bluetooth.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -85,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libbluetooth.so
+%{_libdir}/libbluetooth.la
 %{_includedir}/bluetooth
 
 %files static
