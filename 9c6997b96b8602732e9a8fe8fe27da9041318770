@@ -1,0 +1,10 @@
+- PLDized
+
+* Tue Feb 04 2003 Florian La Roche <Florian.LaRoche@redhat.de>
+- add symlinks to shared libs
+
+* Wed Jan 22 2003 Tim Powers <timp@redhat.com>
+- rebuilt
+
+* Thu Jan 16 2003 Bill Nottingham <notting@redhat.com> 2.3-1
+- initial build
