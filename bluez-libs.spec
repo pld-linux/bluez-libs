@@ -12,7 +12,6 @@ Patch1:		%{name}-sdp.patch
 URL:		http://bluez.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib-devel >= 1.2
 BuildRequires:	libtool >= 1:1.4.2-9
 Conflicts:	bluez-sdp
 ExcludeArch:	s390 s390x
