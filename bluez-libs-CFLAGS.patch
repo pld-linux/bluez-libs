@@ -1,11 +1,11 @@
---- bluez-libs-2.3/configure.in.wiget	Tue Feb 25 15:58:19 2003
-+++ bluez-libs-2.3/configure.in	Tue Feb 25 15:58:29 2003
-@@ -18,8 +18,6 @@
- AC_SUBST(LD)
- AC_SUBST(AR)
+--- bluez-libs-2.6/configure.in.orig	2004-04-02 03:19:17.000000000 +0200
++++ bluez-libs-2.6/configure.in	2004-04-11 15:05:16.513360712 +0200
+@@ -13,8 +13,6 @@
+ 
+ AC_PREFIX_DEFAULT(/usr)
  
 -CFLAGS="-Wall -g -O2"
 -
+ AC_LANG_C
+ 
  AC_PROG_CC
- AC_PROG_INSTALL
- AM_PROG_LIBTOOL
