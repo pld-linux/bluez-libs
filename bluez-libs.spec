@@ -6,6 +6,7 @@ Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
+# Source0-md5:	aeac7599e8bfc4933912c3cfd9d679ff
 Patch0:		%{name}-CFLAGS.patch
 URL:		http://bluez.sourceforge.net/
 BuildRequires:	autoconf
