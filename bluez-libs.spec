@@ -2,16 +2,19 @@ Summary:	Bluetooth libraries
 Summary(pl):	Biblioteki Bluetooth
 Name:		bluez-libs
 Version:	2.6
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	aa7b750f7a649eb570e70e42ebaed568
+Patch0:		%{name}-CFLAGS.patch
+Patch1:		%{name}-sdp.patch
 URL:		http://bluez.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2
 BuildRequires:	libtool
+Conflicts:	bluez-sdp
 ExcludeArch:	s390 s390x
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,7 +32,8 @@ Znaki towarowe BLUETOOTH s± w³asno¶ci± Bluetooth SIG, Inc. z USA.
 Summary:	Header files for Bluetooth applications
 Summary(pl):	Pliki nag³ówkowe dla aplikacji Bluetooth
 Group:		Development/Libraries
-Requires:	bluez-libs = %{version}
+Requires:	bluez-libs = %{version}-%{release}
+Obsoletes:	bluez-sdp-devel
 
 %description devel
 bluez-libs-devel contains header files for use in Bluetooth
@@ -43,7 +47,8 @@ Bluetooth.
 Summary:	Static Bluetooth libraries
 Summary(pl):	Biblioteki statyczne Bluetooth
 Group:		Development/Libraries
-Requires:	bluez-libs-devel = %{version}
+Requires:	bluez-libs-devel = %{version}-%{release}
+Obsoletes:	bluez-sdp-static
 
 %description static
 bluez-libs-static contains development static libraries for use in
@@ -54,7 +59,9 @@ Ten pakiet zawiera biblioteki statyczne, których mo¿na u¿ywa¼ do
 aplikacji Bluetooth.
 
 %prep
-%setup  -q
+%setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -66,6 +73,7 @@ aplikacji Bluetooth.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
