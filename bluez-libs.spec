@@ -1,14 +1,15 @@
-Summary: Bluetooth libraries
-Name: bluez-libs
-Version: 2.3
-Release: 3
-Copyright: GPL
-Group: System Environment/Libraries
-Source: http://bluez.sourceforge.net/%{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-URL: http://bluez.sourceforge.net/
-BuildRequires: glib-devel >= 1.2
-ExcludeArch: s390 s390x
+Summary:	Bluetooth libraries
+Name:		bluez-libs
+Version:	2.3
+Release:	3
+License:	GPL v2
+Group:		Libraries
+Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
+Patch0:		%{name}-CFLAGS.patch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+URL:		http://bluez.sourceforge.net/
+BuildRequires:	glib-devel >= 1.2
+ExcludeArch:	s390 s390x
 
 %description
 Libraries for use in Bluetooth applications.
@@ -16,27 +17,39 @@ Libraries for use in Bluetooth applications.
 The BLUETOOTH trademarks are owned by Bluetooth SIG, Inc., U.S.A.
 
 %package devel
-Summary: Development libraries for Bluetooth applications
-Group: Development/Libraries
-Requires: bluez-libs = %{version}
+Summary:	Development libraries for Bluetooth applications
+Group:		Development/Libraries
+Requires:	bluez-libs = %{version}
 
 %description devel
-bluez-libs-devel contains development libraries and headers for
-use in Bluetooth applications.
+bluez-libs-devel contains development libraries and headers for use in
+Bluetooth applications.
+
+%package static
+Summary:	Development libraries for Bluetooth applications - static version
+Group:		Development/Libraries
+Requires:	bluez-libs-devel = %{version}
+
+%description static
+bluez-libs-static contains development static libraries for use in
+Bluetooth applications.
 
 %prep
-
-%setup -q
+%setup  -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
-/sbin/ldconfig -n $RPM_BUILD_ROOT/%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,22 +59,15 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-, root, root)
-%doc AUTHORS COPYING INSTALL ChangeLog NEWS README
-%{_libdir}/libbluetooth.so.*
+%defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README
+%{_libdir}/libbluetooth.so.*.*
 
 %files devel
-%defattr(-,root,root)
-/usr/include/bluetooth/*
-%{_libdir}/libbluetooth.a
+%defattr(644,root,root,755)
+%{_includedir}/bluetooth/*
 %{_libdir}/libbluetooth.so
 
-%changelog
-* Tue Feb 04 2003 Florian La Roche <Florian.LaRoche@redhat.de>
-- add symlinks to shared libs
-
-* Wed Jan 22 2003 Tim Powers <timp@redhat.com>
-- rebuilt
-
-* Thu Jan 16 2003 Bill Nottingham <notting@redhat.com> 2.3-1
-- initial build
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libbluetooth.a
