@@ -1,12 +1,12 @@
 Summary:	Bluetooth libraries
 Summary(pl):	Biblioteki Bluetooth
 Name:		bluez-libs
-Version:	2.11
+Version:	2.15
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	75689f2f4e243bddaaffc638803aa688
+# Source0-md5:	07dbca15a1edbd6178401f7912d158c0
 URL:		http://bluez.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -88,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libbluetooth.so
 %{_libdir}/libbluetooth.la
 %{_includedir}/bluetooth
+%{_aclocaldir}/*.m4
 %{_pkgconfigdir}/bluez.pc
 
 %files static
