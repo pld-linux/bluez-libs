@@ -1,4 +1,5 @@
 Summary:	Bluetooth libraries
+Summary(pl):	Biblioteki Bluetooth
 Name:		bluez-libs
 Version:	2.3
 Release:	3
@@ -6,33 +7,51 @@ License:	GPL v2
 Group:		Libraries
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-CFLAGS.patch
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 URL:		http://bluez.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2
+BuildRequires:	libtool
 ExcludeArch:	s390 s390x
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Libraries for use in Bluetooth applications.
 
 The BLUETOOTH trademarks are owned by Bluetooth SIG, Inc., U.S.A.
 
+%description -l pl
+Biblioteki do u¿ywania w aplikacjach Bluetooth.
+
+Znaki towarowe BLUETOOTH s± w³asno¶ci± Bluetooth SIG, Inc. z USA.
+
 %package devel
-Summary:	Development libraries for Bluetooth applications
+Summary:	Header files for Bluetooth applications
+Summary(pl):	Pliki nag³ówkowe dla aplikacji Bluetooth
 Group:		Development/Libraries
 Requires:	bluez-libs = %{version}
 
 %description devel
-bluez-libs-devel contains development libraries and headers for use in
-Bluetooth applications.
+bluez-libs-devel contains header files for use in Bluetooth
+applications.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe do u¿ywania w aplikacjach
+Bluetooth.
 
 %package static
-Summary:	Development libraries for Bluetooth applications - static version
+Summary:	Static Bluetooth libraries
+Summary(pl):	Biblioteki statyczne Bluetooth
 Group:		Development/Libraries
 Requires:	bluez-libs-devel = %{version}
 
 %description static
 bluez-libs-static contains development static libraries for use in
 Bluetooth applications.
+
+%description static -l pl
+Ten pakiet zawiera biblioteki statyczne, których mo¿na u¿ywa¼ do
+aplikacji Bluetooth.
 
 %prep
 %setup  -q
@@ -49,24 +68,24 @@ Bluetooth applications.
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%{_libdir}/libbluetooth.so.*.*
+%attr(755,root,root) %{_libdir}/libbluetooth.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/bluetooth/*
-%{_libdir}/libbluetooth.so
+%attr(755,root,root) %{_libdir}/libbluetooth.so
+%{_includedir}/bluetooth
 
 %files static
 %defattr(644,root,root,755)
