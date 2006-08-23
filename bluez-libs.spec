@@ -5,9 +5,10 @@ Version:	3.3
 Release:	1
 License:	GPL v2
 Group:		Libraries
+#Source0Download: http://www.bluez.org/download.html
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	2a36ec3132fac6aaf7a8de30d533852f
-URL:		http://bluez.sourceforge.net/
+URL:		http://www.bluez.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool >= 1:1.4.2-9
