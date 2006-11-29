@@ -2,7 +2,7 @@ Summary:	Bluetooth libraries
 Summary(pl):	Biblioteki Bluetooth
 Name:		bluez-libs
 Version:	3.7
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 #Source0Download: http://www.bluez.org/download.html
