@@ -1,5 +1,5 @@
 Summary:	Bluetooth libraries
-Summary(pl.UTF-8):   Biblioteki Bluetooth
+Summary(pl.UTF-8):	Biblioteki Bluetooth
 Name:		bluez-libs
 Version:	3.9
 Release:	1
@@ -28,7 +28,7 @@ Znaki towarowe BLUETOOTH są własnością Bluetooth SIG, Inc. z USA.
 
 %package devel
 Summary:	Header files for Bluetooth applications
-Summary(pl.UTF-8):   Pliki nagłówkowe dla aplikacji Bluetooth
+Summary(pl.UTF-8):	Pliki nagłówkowe dla aplikacji Bluetooth
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	bluez-sdp-devel
@@ -43,7 +43,7 @@ Bluetooth.
 
 %package static
 Summary:	Static Bluetooth libraries
-Summary(pl.UTF-8):   Biblioteki statyczne Bluetooth
+Summary(pl.UTF-8):	Biblioteki statyczne Bluetooth
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	bluez-sdp-static
