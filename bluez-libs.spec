@@ -1,5 +1,5 @@
 Summary:	Bluetooth libraries
-Summary(pl):	Biblioteki Bluetooth
+Summary(pl.UTF-8):   Biblioteki Bluetooth
 Name:		bluez-libs
 Version:	3.9
 Release:	1
@@ -21,14 +21,14 @@ Libraries for use in Bluetooth applications.
 
 The BLUETOOTH trademarks are owned by Bluetooth SIG, Inc., U.S.A.
 
-%description -l pl
-Biblioteki do uøywania w aplikacjach Bluetooth.
+%description -l pl.UTF-8
+Biblioteki do u≈ºywania w aplikacjach Bluetooth.
 
-Znaki towarowe BLUETOOTH s± w≥asno∂ci± Bluetooth SIG, Inc. z USA.
+Znaki towarowe BLUETOOTH sƒÖ w≈Çasno≈õciƒÖ Bluetooth SIG, Inc. z USA.
 
 %package devel
 Summary:	Header files for Bluetooth applications
-Summary(pl):	Pliki nag≥Ûwkowe dla aplikacji Bluetooth
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla aplikacji Bluetooth
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	bluez-sdp-devel
@@ -37,13 +37,13 @@ Obsoletes:	bluez-sdp-devel
 bluez-libs-devel contains header files for use in Bluetooth
 applications.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe do uøywania w aplikacjach
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe do u≈ºywania w aplikacjach
 Bluetooth.
 
 %package static
 Summary:	Static Bluetooth libraries
-Summary(pl):	Biblioteki statyczne Bluetooth
+Summary(pl.UTF-8):   Biblioteki statyczne Bluetooth
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	bluez-sdp-static
@@ -52,8 +52,8 @@ Obsoletes:	bluez-sdp-static
 bluez-libs-static contains development static libraries for use in
 Bluetooth applications.
 
-%description static -l pl
-Ten pakiet zawiera biblioteki statyczne, ktÛrych moøna uøywaº do
+%description static -l pl.UTF-8
+Ten pakiet zawiera biblioteki statyczne, kt√≥rych mo≈ºna u≈ºywa≈∫ do
 aplikacji Bluetooth.
 
 %prep
