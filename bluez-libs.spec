@@ -1,15 +1,15 @@
 Summary:	Bluetooth libraries
 Summary(pl.UTF-8):	Biblioteki Bluetooth
 Name:		bluez-libs
-Version:	3.9
+Version:	3.12
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://www.bluez.org/download.html
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	53275e1824886368f11f586899707e08
+# Source0-md5:	169ad9573c4a7786fdc47289cfa87c04
 URL:		http://www.bluez.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool >= 1:1.4.2-9
 Conflicts:	bluez-sdp
@@ -63,6 +63,7 @@ aplikacji Bluetooth.
 %{__libtoolize}
 %{__aclocal}
 %{__automake}
+%{__autoheader}
 %{__autoconf}
 %configure
 %{__make}
