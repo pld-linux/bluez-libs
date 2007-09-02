@@ -1,13 +1,13 @@
 Summary:	Bluetooth libraries
 Summary(pl.UTF-8):	Biblioteki Bluetooth
 Name:		bluez-libs
-Version:	3.17
+Version:	3.18
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://www.bluez.org/download.html
 Source0:	http://bluez.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	0b7869b980efabe23ff1d86cf4faca25
+# Source0-md5:	9e091f2ce00b906c4c456fff24e69e55
 URL:		http://www.bluez.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
