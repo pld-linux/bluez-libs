@@ -53,7 +53,7 @@ bluez-libs-static contains development static libraries for use in
 Bluetooth applications.
 
 %description static -l pl.UTF-8
-Ten pakiet zawiera biblioteki statyczne, których można używaź do
+Ten pakiet zawiera biblioteki statyczne, których można używać do
 aplikacji Bluetooth.
 
 %prep
@@ -84,13 +84,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libbluetooth.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libbluetooth.so.2
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libbluetooth.so
 %{_libdir}/libbluetooth.la
 %{_includedir}/bluetooth
-%{_aclocaldir}/*.m4
+%{_aclocaldir}/bluez.m4
 %{_pkgconfigdir}/bluez.pc
 
 %files static
